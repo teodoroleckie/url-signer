@@ -1,0 +1,32 @@
+{
+  "source": {
+    "directories": [
+      "./src"
+    ],
+    "excludes": [
+      "./vendor/"
+    ]
+  },
+  "phpUnit": {
+    "configDir": ".\/tests\/",
+    "customPath": ".\/bin\/phpunit"
+  },
+  "logs": {
+    "text": ".\/infection-report"
+  },
+  "mutators": {
+    "@default": true,
+    "DecrementInteger": {
+        "ignore": [
+            "Tleckie\\UrlSigner\\Signer::__construct"
+        ]
+    },
+    "LessThan": {
+            "ignore": [
+                "Tleckie\\UrlSigner\\Signer::expired"
+            ]
+        }
+  },
+  "testFramework":"phpunit",
+  "bootstrap": "./vendor/autoload.php"
+}

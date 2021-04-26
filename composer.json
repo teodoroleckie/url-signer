@@ -1,0 +1,58 @@
+{
+  "name": "tleckie/url-signer",
+  "license": "MIT",
+  "description": "Create secured URLs with a limited lifetime in php",
+  "type": "library",
+  "homepage": "https://github.com/teodoroleckie/url-signer",
+  "authors": [
+    {
+      "name": "Teodoro Leckie Westberg",
+      "email": "teodoroleckie@gmail.com"
+    }
+  ],
+  "keywords": [
+    "tleckie",
+    "url",
+    "signet",
+    "url-signer",
+    "php",
+    "php-8"
+  ],
+  "autoload": {
+    "psr-4": {
+      "Tleckie\\UrlSigner\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tleckie\\UrlSigner\\Tests\\": "tests"
+    }
+  },
+  "require": {
+    "php": "^8",
+    "httpsoft/http-message": "^1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5",
+    "infection/infection": "^0.21.5",
+    "friendsofphp/php-cs-fixer": "v3.0.0-beta.2"
+  },
+  "config": {
+    "sort-packages": true,
+    "optimize-autoloader": true,
+    "vendor-dir": "vendor",
+    "bin-dir": "bin"
+  },
+  "scripts": {
+    "fix-src": "./bin/php-cs-fixer fix src/ ",
+    "fix-tests": "./bin/php-cs-fixer fix tests/",
+    "tests": "./bin/phpunit ./tests/",
+    "infection": "infection",
+    "check": [
+      "@fix-src",
+      "@fix-tests",
+      "@tests",
+      "@infection"
+    ]
+  }
+}
